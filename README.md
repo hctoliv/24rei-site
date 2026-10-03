@@ -30,6 +30,18 @@ assets/          logo e símbolo (SVG, da marca oficial)
 assets/fotos/    maquinário e parque gráfico (fotos da própria 24 Rei)
 ```
 
+## Versão hospedada
+
+`build-artifact.py` gera `dist/index.html`, que é a mesma página adaptada para hospedagem
+em sandbox: sem o esqueleto HTML (a plataforma embrulha a página) e com o iframe do Google
+Maps trocado por um cartão de endereço com link, porque iframe de terceiro é bloqueado lá.
+
+```bash
+python3 build-artifact.py
+```
+
+O `index.html` da raiz continua sendo a versão de produção, intacta.
+
 ## Rodando local
 
 ```bash
@@ -55,6 +67,10 @@ Depois abra http://localhost:4324 — ou use o perfil `24rei` em `.claude/launch
 Não depende de backend: monta a mensagem formatada (nome, empresa, e-mail, telefone,
 assunto, serviço e descrição do projeto) e abre o **WhatsApp comercial**
 (`5511993563103`) com tudo pronto para envio. O e-mail segue como alternativa visível.
+
+A abertura usa um link real clicado por script, não `window.open`, que morre em bloqueador
+de pop-up e em página incorporada. Se mesmo assim não abrir, a nota embaixo do botão vira
+um link clicável com a mensagem já montada.
 
 Para trocar por um backend de verdade, o ponto único é o `form.addEventListener('submit', ...)`
 em [`main.js`](main.js).

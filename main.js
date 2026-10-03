@@ -207,8 +207,19 @@
       ].filter(function (l) { return l !== null; });
 
       var url = 'https://api.whatsapp.com/send?phone=' + WPP + '&text=' + encodeURIComponent(linhas.join('\n'));
-      window.open(url, '_blank', 'noopener');
-      note.innerHTML = 'Abrimos o WhatsApp com sua mensagem pronta. Se não abriu, chame em <a href="tel:+551120224475" style="color:var(--c)">(11) 2022-4475</a>.';
+
+      // um link real abre em qualquer contexto; window.open morre em popup blocker e em página incorporada
+      var a = document.createElement('a');
+      a.href = url;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+
+      note.innerHTML = 'Mensagem pronta. Se o WhatsApp não abrir sozinho, ' +
+        '<a href="' + url + '" target="_blank" rel="noopener" style="color:var(--c)">toque aqui</a> ' +
+        'ou chame no (11) 2022-4475.';
     });
 
     $$('input, textarea, select', form).forEach(function (el) {

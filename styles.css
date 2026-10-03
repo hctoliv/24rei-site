@@ -134,13 +134,15 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:500;margin:0;letter-spacing:-
 
 /* ---------- header ---------- */
 .header{
-  position:fixed;top:0;left:0;right:0;z-index:200;height:var(--header-h);
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  height:calc(var(--header-h) + env(safe-area-inset-top,0px));
+  padding-top:env(safe-area-inset-top,0px);
   display:flex;align-items:center;
   transition:background .5s var(--ease),backdrop-filter .5s var(--ease),border-color .5s var(--ease),height .4s var(--ease);
   border-bottom:1px solid transparent;
 }
 .header.is-stuck{
-  height:68px;background:rgba(10,10,11,.72);backdrop-filter:saturate(160%) blur(16px);
+  height:calc(68px + env(safe-area-inset-top,0px));background:rgba(10,10,11,.72);backdrop-filter:saturate(160%) blur(16px);
   -webkit-backdrop-filter:saturate(160%) blur(16px);border-bottom-color:var(--line-soft);
 }
 .header__in{display:flex;align-items:center;justify-content:space-between;gap:24px;width:100%}
@@ -431,7 +433,7 @@ body.is-locked .burger i::after{top:0;transform:rotate(-45deg)}
 .cmyk-bar i:nth-child(4){background:#6b6b68}
 
 /* botão flutuante whatsapp + topo */
-.float{position:fixed;right:22px;bottom:22px;z-index:180;display:flex;flex-direction:column;gap:10px;align-items:center}
+.float{position:fixed;right:22px;bottom:calc(22px + env(safe-area-inset-bottom,0px));z-index:180;display:flex;flex-direction:column;gap:10px;align-items:center}
 .float a,.float button{
   width:54px;height:54px;border-radius:50%;display:grid;place-items:center;border:0;cursor:pointer;
   box-shadow:0 10px 28px rgba(0,0,0,.4);transition:transform .45s var(--ease)
@@ -480,7 +482,7 @@ body.is-locked .burger i::after{top:0;transform:rotate(-45deg)}
   .svc__num{display:none}
   .scrollcue{display:none}
   .hero{align-items:center}
-  .float{right:16px;bottom:16px}
+  .float{right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px))}
 }
 
 @media (prefers-reduced-motion:reduce){
