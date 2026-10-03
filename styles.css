@@ -466,7 +466,7 @@ body.is-locked .burger i::after{top:0;transform:rotate(-45deg)}
 @keyframes load{to{transform:scaleX(1)}}
 
 /* ---------- responsivo ---------- */
-@media (max-width:1100px){
+@media (max-width:1240px){
   .nav,.header__cta .btn{display:none}
   .burger{display:grid}
   .about__grid,.contact__grid{grid-template-columns:1fr}
@@ -548,7 +548,11 @@ body.is-locked .burger i::after{top:0;transform:rotate(-45deg)}
 /* ---------- marcas / clientes ---------- */
 /* os logos vem em JPG com fundo branco sujo de compressao; darken clipa tudo
    que for mais claro que o papel, entao o retangulo em volta some por completo */
-.marcas{background:var(--paper);color:var(--ink-dark);padding-block:clamp(54px,6vw,86px);overflow:hidden}
+.marcas{background:var(--paper);color:var(--ink-dark);
+  padding-block:clamp(44px,5vw,68px) clamp(36px,4vw,56px);overflow:hidden;
+  border-bottom:1px solid var(--line-dark)}
+/* marcas e valores sao os dois em papel: sem isto as duas respiracoes somam e viram um vazio */
+.marcas + .values{padding-top:clamp(44px,5vw,72px)}
 .marcas__head{margin-bottom:clamp(30px,3.4vw,46px)}
 .marcas h2{color:var(--ink-dark);max-width:24ch}
 .marcas__rail{position:relative}
