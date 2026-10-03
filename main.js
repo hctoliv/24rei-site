@@ -133,11 +133,11 @@
     });
   });
 
-  /* ---------- marquee infinito (duplica o conteúdo) ---------- */
-  var track = $('#marquee');
-  if (track && !reduced) {
-    track.innerHTML += track.innerHTML;
-  }
+  /* ---------- esteiras infinitas (duplicam o conteúdo) ---------- */
+  ['#marquee', '#marcasTrack'].forEach(function (sel) {
+    var track = $(sel);
+    if (track && !reduced) track.innerHTML += track.innerHTML;
+  });
 
   /* ---------- parallax suave dos blobs do hero ---------- */
   if (!reduced) {

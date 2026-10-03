@@ -58,9 +58,10 @@ Depois abra http://localhost:4324 — ou use o perfil `24rei` em `.claude/launch
 4. **Parque gráfico** — faixa com a vista aérea do galpão e a linha de produção em cinco etapas (pré-impressão, offset, digital, acabamento, expedição)
 5. **Serviços** — acordeão onde a linha é preenchida pela cor do serviço (os 6 serviços do site original)
 6. **Vantagens** — os três diferenciais, incluindo a certificação FSC®
-7. **Missão e valores** — missão + os quatro valores da empresa
-8. **Contato** — formulário, dados, redes e mapa
-9. **Rodapé** — navegação completa e barra de registro CMYK
+7. **Clientes** — esteira infinita de logos, em cinza, ganhando cor no hover
+8. **Missão e valores** — missão + os quatro valores da empresa
+9. **Contato** — formulário, dados, redes e mapa
+10. **Rodapé** — navegação completa e barra de registro CMYK
 
 ## Formulário
 
@@ -87,6 +88,16 @@ dos blobs do hero. Tudo respeita `prefers-reduced-motion: reduce`.
 - Foco visível em ciano
 - Texto dos painéis de serviço com contraste mínimo de 4.5:1 sobre cada cor
 - Sem overflow horizontal em 375px
+
+## Logos de clientes
+
+Em `assets/marcas/`. São os cinco que a própria 24 Rei publica na página de vantagens do
+site atual: Samsung, Danone, Magalu, PepsiCo e BRMalls. Para adicionar outro, basta soltar
+o arquivo na pasta e acrescentar um `<li class="marca">` na esteira.
+
+Os arquivos são JPEG com fundo branco. O fundo some por `mix-blend-mode: darken` contra o
+papel da seção — e o papel precisa estar pintado no próprio `.marcas__track`, porque a
+animação isola o grupo de blend. Logo em PNG/SVG com fundo transparente também funciona.
 
 ## Fotos
 

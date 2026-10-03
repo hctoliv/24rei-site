@@ -491,6 +491,8 @@ body.is-locked .burger i::after{top:0;transform:rotate(-45deg)}
   .rv{opacity:1;transform:none}
   .line>span{transform:none}
   .hero__photo{animation:none;transform:scale(1.02)}
+  .marquee__track,.marcas__track{animation:none;width:auto;flex-wrap:wrap;justify-content:center}
+  .marcas__rail::before,.marcas__rail::after{display:none}
 }
 
 
@@ -541,4 +543,27 @@ body.is-locked .burger i::after{top:0;transform:rotate(-45deg)}
 @media (max-width:620px){
   .casa img{aspect-ratio:4/3}
 }
-}
+
+
+/* ---------- marcas / clientes ---------- */
+/* os logos vem em JPG com fundo branco sujo de compressao; darken clipa tudo
+   que for mais claro que o papel, entao o retangulo em volta some por completo */
+.marcas{background:var(--paper);color:var(--ink-dark);padding-block:clamp(54px,6vw,86px);overflow:hidden}
+.marcas__head{margin-bottom:clamp(30px,3.4vw,46px)}
+.marcas h2{color:var(--ink-dark);max-width:24ch}
+.marcas__rail{position:relative}
+/* as bordas somem no papel, pra esteira nao "cortar" seco */
+.marcas__rail::before,.marcas__rail::after{content:"";position:absolute;top:0;bottom:0;width:clamp(40px,8vw,120px);z-index:2;pointer-events:none}
+.marcas__rail::before{left:0;background:linear-gradient(90deg,var(--paper),transparent)}
+.marcas__rail::after{right:0;background:linear-gradient(270deg,var(--paper),transparent)}
+/* o track e animado, entao isola o grupo de blend: o papel precisa estar pintado
+   aqui dentro, senao o branco do JPG blenda contra transparencia e vira caixa branca */
+.marcas__track{list-style:none;margin:0;padding:0;display:flex;align-items:center;width:max-content;
+  background:var(--paper);animation:desfila 34s linear infinite}
+.marcas__rail:hover .marcas__track{animation-play-state:paused}
+@keyframes desfila{to{transform:translateX(-50%)}}
+.marca{flex:none;padding-inline:clamp(22px,3.4vw,52px)}
+.marca img{height:clamp(40px,4.6vw,62px);width:auto;object-fit:contain;
+  mix-blend-mode:darken;filter:grayscale(1) contrast(1.05);opacity:.55;
+  transition:opacity .45s var(--ease),filter .45s var(--ease),transform .45s var(--ease)}
+.marca img:hover{opacity:1;filter:grayscale(0) contrast(1);transform:scale(1.04)}
