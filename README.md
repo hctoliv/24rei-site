@@ -55,7 +55,7 @@ Depois abra http://localhost:4324 — ou use o perfil `24rei` em `.claude/launch
 1. **Hero** — foto da prensa offset da casa como capa (Ken Burns lento), headline em três linhas com reveal por máscara, blobs CMYK em `screen` com parallax de ponteiro, retícula de meio-tom e selos (2.000 m², produção 24h, FSC®)
 2. **Marquee** — esteira infinita com as capacidades de produção
 3. **Quem somos** — coluna sticky + contadores animados (24.600 jobs, +10 anos, 98% satisfação, +80 colaboradores)
-4. **Parque gráfico** — galeria do chão de fábrica, do acabamento e da vista aérea do galpão, com zoom no hover
+4. **Parque gráfico** — faixa com a vista aérea do galpão e a linha de produção em cinco etapas (pré-impressão, offset, digital, acabamento, expedição)
 5. **Serviços** — acordeão onde a linha é preenchida pela cor do serviço (os 6 serviços do site original)
 6. **Vantagens** — os três diferenciais, incluindo a certificação FSC®
 7. **Missão e valores** — missão + os quatro valores da empresa
@@ -90,12 +90,17 @@ dos blobs do hero. Tudo respeita `prefers-reduced-motion: reduce`.
 
 ## Fotos
 
-As imagens de maquinário e do parque gráfico são da própria 24 Rei, recuperadas da
-biblioteca do site atual (`wp-content/uploads`). A capa é a prensa offset com tinta
-magenta e ciano — a mesma ideia de CMYK que guia o resto do layout.
+Duas fotos, ambas da própria 24 Rei, recuperadas da biblioteca do site atual
+(`wp-content/uploads`): a prensa offset com tinta magenta e ciano, que é a capa, e a
+vista aérea do galpão em Quarta Parada.
+
+Existiam mais duas (chão de fábrica e dobradeira) que saíram: são fotos de celular com
+fundo bagunçado e enfraqueciam a seção ao lado da capa. Estão no histórico do git se
+alguém quiser de volta. Para recolocar uma galeria ali, o que falta é fotografia nova do
+maquinário: enquadramento fechado na máquina, luz controlada e fundo limpo.
 
 Não foi possível gerar WebP nesta máquina (sem `cwebp` e sem suporte a WebP no `sips`),
-então as fotos seguem em JPEG: 432 KB no total, com a capa em `preload` e o resto em
+então as fotos seguem em JPEG: 280 KB no total, com a capa em `preload` e a aérea em
 `loading="lazy"`. Converter para WebP/AVIF é o ganho de performance mais fácil daqui.
 
 ## Dados da empresa
